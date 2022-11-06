@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 
 router.get("/", function (req, res, next) {
-  function changeTimeZone(date, timeZone) {
+  const changeTimeZone = (date, timeZone) => {
     if (typeof date === "string") {
       return new Date(
         new Date(date).toLocaleString("en-US", {
@@ -16,7 +16,7 @@ router.get("/", function (req, res, next) {
         timeZone,
       })
     );
-  }
+  };
   const indoDate = changeTimeZone(new Date(), "Asia/Jakarta");
 
   const dArr = Date().toString().split(" ");
