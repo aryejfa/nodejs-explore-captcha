@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var validationRouter = require('./routes/validation');
+var validationTime = require('./routes/validation-time');
 var captchaRouter = require('./routes/captcha');
 
 var app = express();
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/validation', validationRouter);
 app.use('/captcha', captchaRouter);
+app.use('/validation-time', validationTime);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
